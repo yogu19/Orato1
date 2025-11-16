@@ -4,6 +4,12 @@
 A full-stack educational platform website for Orato, focused on soft skills development for students in Classes 6–10. Built with TypeScript, React, Express, and Vite.
 
 ## Recent Changes
+- **November 16, 2025**: Content updates and timeline redesign
+  - Updated Navigation component with proper light/dark mode styling (white bg in light mode, black bg with gold accents in dark mode)
+  - Updated About page team members to real names: Yamini, Sakshi, and Akshita (all Certified Trainers & Educators)
+  - Updated timeline years from 2023/2024/2025 to 2024/2025/2026, with 2026 marked "In Progress"
+  - Redesigned timeline to vertical layout with center line, alternating left-right cards, connecting dots, and horizontal connector lines
+  - Replaced 6 placeholder workshop photos with 5 real images from attached_assets
 - **November 16, 2025**: Initial import from GitHub and setup for Replit environment
   - Configured to run on port 5000 with proper host settings
   - Dependencies installed
