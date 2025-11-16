@@ -55,7 +55,7 @@ export default function Statistics() {
   return (
     <section className="py-12">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <Card className="bg-gray-950 dark:bg-gray-950 border-gray-800 dark:border-gray-800 p-8 md:p-12">
+        <Card className="p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div
@@ -70,7 +70,7 @@ export default function Statistics() {
                     suffix={stat.suffix}
                   />
                 </div>
-                <p className="text-sm uppercase tracking-wide text-gray-400">
+                <p className="text-sm uppercase tracking-wide text-muted-foreground">
                   {stat.label}
                 </p>
               </div>
