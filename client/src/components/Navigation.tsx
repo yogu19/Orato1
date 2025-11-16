@@ -132,7 +132,7 @@ export default function Navigation() {
                 size="default" 
                 asChild 
                 data-testid="button-mobile-partner"
-                className="bg-primary hover:bg-primary/90 dark:bg-[#D4A574] dark:hover:bg-[#C89564] dark:text-black"
+                className="bg-primary hover:bg-primary/90 dark:bg-[#D4A574] dark:hover:bg-[#C89564] dark:text-black dark:border-black"
               >
                 <Link href="/schools">Partner With Us</Link>
               </Button>
