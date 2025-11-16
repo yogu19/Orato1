@@ -1,30 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import heroImage from "@assets/generated_images/Students_learning_in_classroom_e05d4475.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F3ED]">
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-32 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-            <span className="text-white">Soft Skills that Build</span>
+            <span className="text-black">Soft Skills that Build</span>
             <br />
             <span className="text-primary">Confidence</span>
-            <span className="text-white">, </span>
+            <span className="text-black">, </span>
             <span className="text-primary">Communication</span>
             <br />
-            <span className="text-white">& </span>
-            <span className="text-accent">Character</span>
+            <span className="text-black">& </span>
+            <span className="text-sky-400">Character</span>
           </h1>
 
-          <p className="text-lg lg:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg lg:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
             Hybrid learning programs designed for Classes 6–10
           </p>
 
@@ -32,7 +25,6 @@ export default function Hero() {
             <Button
               size="lg"
               variant="default"
-              className="backdrop-blur-md"
               data-testid="button-book-trial"
               onClick={() => console.log("Book a Trial clicked")}
             >
@@ -41,7 +33,6 @@ export default function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="backdrop-blur-md bg-background/10 text-white border-white/30 hover:bg-background/20"
               data-testid="button-watch-demo"
               onClick={() => console.log("Watch Demo clicked")}
             >
