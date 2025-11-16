@@ -23,11 +23,11 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home">
-            <span className="text-2xl font-bold text-primary">Orato</span>
+            <span className="text-2xl font-bold text-primary dark:text-[#D4A574]">Orato</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -38,10 +38,10 @@ export default function Navigation() {
                 data-testid={`link-${item.label.toLowerCase()}`}
               >
                 <span
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors dark:text-gray-300 dark:hover:text-white ${
                     location === item.path
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                      ? "text-primary dark:text-white"
+                      : "text-gray-600 hover:text-primary"
                   }`}
                 >
                   {item.label}
@@ -53,7 +53,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover-elevate transition-all"
+              className="w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover-elevate transition-all"
               aria-label="Toggle theme"
               data-testid="button-theme-toggle"
             >
@@ -63,10 +63,15 @@ export default function Navigation() {
                 <Sun className="w-4 h-4" />
               )}
             </button>
-            <Button variant="default" size="default" asChild data-testid="button-enroll">
+            <Button variant="outline" size="default" asChild data-testid="button-enroll">
               <Link href="/courses">Enroll Now</Link>
             </Button>
-            <Button variant="default" size="default" asChild data-testid="button-partner-nav">
+            <Button 
+              size="default" 
+              asChild 
+              data-testid="button-partner-nav"
+              className="bg-primary hover:bg-primary/90 dark:bg-[#D4A574] dark:hover:bg-[#C89564] dark:text-black"
+            >
               <Link href="/schools">Partner With Us</Link>
             </Button>
           </div>
@@ -86,7 +91,7 @@ export default function Navigation() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t" data-testid="mobile-menu">
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800" data-testid="mobile-menu">
             <div className="flex flex-col gap-4">
               {menuItems.map((item) => (
                 <Link
@@ -98,8 +103,8 @@ export default function Navigation() {
                   <span
                     className={`text-sm font-medium ${
                       location === item.path
-                        ? "text-primary"
-                        : "text-muted-foreground"
+                        ? "text-primary dark:text-white"
+                        : "text-gray-600 dark:text-gray-300"
                     }`}
                   >
                     {item.label}
@@ -109,7 +114,7 @@ export default function Navigation() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleTheme}
-                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover-elevate transition-all"
+                  className="w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover-elevate transition-all"
                   aria-label="Toggle theme"
                   data-testid="button-mobile-theme-toggle"
                 >
@@ -120,10 +125,15 @@ export default function Navigation() {
                   )}
                 </button>
               </div>
-              <Button variant="default" size="default" asChild data-testid="button-mobile-enroll">
+              <Button variant="outline" size="default" asChild data-testid="button-mobile-enroll">
                 <Link href="/courses">Enroll Now</Link>
               </Button>
-              <Button variant="default" size="default" asChild data-testid="button-mobile-partner">
+              <Button 
+                size="default" 
+                asChild 
+                data-testid="button-mobile-partner"
+                className="bg-primary hover:bg-primary/90 dark:bg-[#D4A574] dark:hover:bg-[#C89564] dark:text-black"
+              >
                 <Link href="/schools">Partner With Us</Link>
               </Button>
             </div>

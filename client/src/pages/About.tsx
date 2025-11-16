@@ -3,44 +3,57 @@ import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Target, Lightbulb } from "lucide-react";
+import workshop1 from "@assets/WhatsApp Image 2025-11-17 at 12.40.29 AM_1763326466385.jpeg";
+import workshop2 from "@assets/WhatsApp Image 2025-11-17 at 12.42.25 AM_1763326530937.jpeg";
+import workshop3 from "@assets/WhatsApp Image 2025-11-17 at 12.42.24 AM_1763326537886.jpeg";
+import workshop4 from "@assets/image_1763326624681.png";
+import workshop5 from "@assets/image_1763326673607.png";
 
 const teamMembers = [
   {
-    name: "Team Member 1",
+    name: "Yamini",
     role: "Certified Trainer & Educator",
     description: "Passionate about empowering students with essential life skills through innovative teaching methods.",
-    initials: "TM",
+    initials: "Y",
   },
   {
-    name: "Team Member 2",
+    name: "Sakshi",
     role: "Certified Trainer & Educator",
     description: "Passionate about empowering students with essential life skills through innovative teaching methods.",
-    initials: "TM",
+    initials: "S",
   },
   {
-    name: "Team Member 3",
+    name: "Akshita",
     role: "Certified Trainer & Educator",
     description: "Passionate about empowering students with essential life skills through innovative teaching methods.",
-    initials: "TM",
+    initials: "A",
   },
 ];
 
 const timeline = [
   {
-    year: "2023",
+    year: "2024",
     title: "Pilot Program",
     description: "Launched initial soft skills workshops",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Trial Phase",
     description: "Partnered with 2-3 schools for testing",
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Expansion",
-    description: "Scaling to more Tier-2 cities",
+    description: "In Progress",
   },
+];
+
+const workshopImages = [
+  { src: workshop1, alt: "Teachers workshop session" },
+  { src: workshop2, alt: "Children with educational toys" },
+  { src: workshop3, alt: "Child with building blocks" },
+  { src: workshop4, alt: "Interactive children activities" },
+  { src: workshop5, alt: "Children sharing meal together" },
 ];
 
 export default function About() {
@@ -121,21 +134,59 @@ export default function About() {
         {/* Journey Timeline */}
         <section className="py-16 bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl font-semibold mb-4">Our Journey</h2>
               <p className="text-lg text-muted-foreground">
                 Key milestones in our growth story
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {timeline.map((item, index) => (
-                <Card key={index} className="p-8 hover-elevate transition-all" data-testid={`card-timeline-${index}`}>
-                  <div className="text-5xl font-bold text-primary mb-4" data-testid={`text-year-${index}`}>{item.year}</div>
-                  <h3 className="text-2xl font-semibold mb-3" data-testid={`text-timeline-title-${index}`}>{item.title}</h3>
-                  <p className="text-muted-foreground" data-testid={`text-timeline-desc-${index}`}>{item.description}</p>
-                </Card>
-              ))}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Vertical line */}
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700 transform -translate-x-1/2 hidden md:block" />
+
+              {/* Timeline items */}
+              <div className="space-y-16">
+                {timeline.map((item, index) => (
+                  <div 
+                    key={index}
+                    className={`relative flex items-center ${
+                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } flex-col`}
+                    data-testid={`timeline-item-${index}`}
+                  >
+                    {/* Card */}
+                    <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                      <Card className="p-8 hover-elevate transition-all" data-testid={`card-timeline-${index}`}>
+                        <div className="text-5xl font-bold text-primary mb-4" data-testid={`text-year-${index}`}>
+                          {item.year}
+                        </div>
+                        <h3 className="text-2xl font-semibold mb-3" data-testid={`text-timeline-title-${index}`}>
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground" data-testid={`text-timeline-desc-${index}`}>
+                          {item.description}
+                        </p>
+                      </Card>
+                    </div>
+
+                    {/* Dot on the line with connectors */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center">
+                      {/* Horizontal connector line */}
+                      <div 
+                        className={`absolute w-12 h-0.5 bg-gray-300 dark:bg-gray-700 ${
+                          index % 2 === 0 ? 'left-2 -translate-x-full' : 'right-2 translate-x-full'
+                        }`}
+                      />
+                      {/* Center dot */}
+                      <div className="w-4 h-4 bg-primary rounded-full border-4 border-background relative z-10" />
+                    </div>
+
+                    {/* Spacer for opposite side */}
+                    <div className="w-full md:w-5/12 hidden md:block" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -151,13 +202,17 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
+              {workshopImages.map((image, index) => (
                 <div
-                  key={item}
-                  className="aspect-video bg-muted rounded-lg flex items-center justify-center hover-elevate transition-all"
-                  data-testid={`gallery-item-${item}`}
+                  key={index}
+                  className="aspect-video rounded-lg overflow-hidden hover-elevate transition-all"
+                  data-testid={`gallery-item-${index + 1}`}
                 >
-                  <span className="text-muted-foreground">Workshop Photo {item}</span>
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               ))}
             </div>
